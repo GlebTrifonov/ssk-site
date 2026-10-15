@@ -5,10 +5,10 @@
 - [x] `startproject config .`, `migrate`
 - [x] Имя проекта в `pyproject.toml`
 - [x] `.gitignore` (venv, db.sqlite3, .idea)
-- [ ] ruff (линтер + форматтер)
-- [ ] pytest + pytest-django
-- [ ] `.env` + `.env.example`, секреты из settings.py
-- [ ] Первый коммит
+- [x] ruff (линтер + форматтер)
+- [x] pytest + pytest-django
+- [x] `.env` + `.env.example`, секреты из settings.py
+- [x] Первый коммит
 
 ## 2. Модели и админка
 - [ ] Service, Project, Review, Lead
