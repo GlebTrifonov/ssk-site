@@ -19,3 +19,5 @@ dev = [
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "config.settings"
 
+[tool.ruff]
+extend-exclude = ["*/migrations/*"]
