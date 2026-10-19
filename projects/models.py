@@ -20,3 +20,18 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Review(models.Model):
+    author = models.CharField(max_length=200, verbose_name="Имя")
+    text = models.TextField(verbose_name="Отзыв")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата публикации")
+    is_active = models.BooleanField(default=True, verbose_name="Показывать на сайте")
+
+    class Meta:
+        verbose_name = "Отзыв"
+        verbose_name_plural = "Отзывы"
+        ordering = ("-created_at",)
+
+    def __str__(self):
+        return self.author
