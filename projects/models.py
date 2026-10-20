@@ -35,3 +35,17 @@ class Review(models.Model):
 
     def __str__(self):
         return self.author
+
+
+class ProjectImage(models.Model):
+    project = models.ForeignKey(
+        Project, on_delete=models.CASCADE, verbose_name="Объект", related_name="images"
+    )
+    image = models.ImageField(upload_to="project/", verbose_name="Фото")
+
+    class Meta:
+        verbose_name = "Фото объекта"
+        verbose_name_plural = "Фото объектов"
+
+    def __str__(self):
+        return f"{self.project}, фото {self.id}"

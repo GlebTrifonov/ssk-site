@@ -19,10 +19,10 @@
 ## 3. Pillow: загрузка фото, миниатюры
 
 - [ ] Работа через ветки и PR (с этого этапа)
-- [ ] Pillow, `MEDIA_ROOT` / `MEDIA_URL`, `media/` в `.gitignore`
-- [ ] Фото у `Service` (`ImageField`)
+- [x] Pillow, `MEDIA_ROOT` / `MEDIA_URL`, `media/` в `.gitignore`
+- [x] Фото у `Service` (`ImageField`)
 - [ ] Галерея объекта: модель `ProjectImage` (несколько фото на объект), inline в админке
-- [ ] Отдача media в режиме разработки
+- [x] Отдача media в режиме разработки
 - [ ] Миниатюры: уменьшение фото при сохранении
 
 ## 4. Страницы и шаблоны, Bootstrap
