@@ -5,6 +5,9 @@ class Service(models.Model):
     title = models.CharField(max_length=200, verbose_name="Название")
     description = models.TextField(blank=True, verbose_name="Описание")
     is_active = models.BooleanField(default=True, verbose_name="Показывать на сайте")
+    image = models.ImageField(
+        upload_to="service/", verbose_name="Фотография", blank=True
+    )
 
     class Meta:
         verbose_name = "Услуга"
