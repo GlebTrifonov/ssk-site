@@ -1,4 +1,5 @@
 from django.db import models
+from PIL import Image
 
 from services.models import Service
 
@@ -49,3 +50,9 @@ class ProjectImage(models.Model):
 
     def __str__(self):
         return f"{self.project}, фото {self.id}"
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.image.path)
+        img.thumbnail((1600, 1600))
+        img.save(self.image.path)
