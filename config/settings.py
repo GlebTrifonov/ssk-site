@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "services",
     "projects",
     "leads",
+    "pages",
 ]
 
 MIDDLEWARE = [
