@@ -4,4 +4,9 @@
 
 {% block content %}
 <h1>СанСтройКап</h1>
+<ul>
+    {% for service in services %}
+    <li>{{ service.title }}</li>
+    {% endfor %}
+</ul>    
 {% endblock %}

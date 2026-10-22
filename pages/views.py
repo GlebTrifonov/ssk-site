@@ -1,5 +1,11 @@
 from django.shortcuts import render
 
+from services.models import Service
+
 
 def home(request):
-    return render(request, "pages/home.html")
+    services = Service.objects.filter(is_active=True)
+    context = {
+        "services": services
+    }
+    return render(request, "pages/home.html", context)
