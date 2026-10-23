@@ -5,17 +5,25 @@
 {% block content %}
 <div class="container">
     <h1>СанСтройКап</h1>
-    <div class="row g-4">
-        {% for service in services %}
-        <div class="col-md-4">
-            <div class="card" >
-                <div class="card-body">
-                    <h5 class="card-title">{{ service.title }}</h5>
-                    <p class="card-text">{{ service.description }}</p>
+    <section class="mb-5">
+        <h2>Кто мы</h2>
+        <p>«СанСтройКап» — строительная компания из Гродно. Работаем по всей Гродненской области.</p>
+        <p>Наша специализация — инженерные системы: отопление, водоснабжение и канализация. Берёмся за объекты под ключ: от проекта до сдачи.</p>
+    </section>
+    <section class="mb-5">
+        <h2>Наши услуги</h2>
+        <div class="row g-4">
+            {% for service in services %}
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ service.title }}</h5>
+                        <p class="card-text">{{ service.description }}</p>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>    
+    </section>
 </div>
 {% endblock %}
