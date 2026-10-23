@@ -3,5 +3,19 @@
 {% block title %}Главная{% endblock %}
 
 {% block content %}
-<h1>СанСтройКап</h1>
+<div class="container">
+    <h1>СанСтройКап</h1>
+    <div class="row g-4">
+        {% for service in services %}
+        <div class="col-md-4">
+            <div class="card" >
+                <div class="card-body">
+                    <h5 class="card-title">{{ service.title }}</h5>
+                    <p class="card-text">{{ service.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>    
+</div>
 {% endblock %}
