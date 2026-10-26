@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from projects.models import Project
+from projects.models import Project, Review
 from services.models import Service
 
 
@@ -11,5 +11,6 @@ def home(request):
         .prefetch_related("images")
         .filter(is_active=True)
     )
-    context = {"services": services, "projects": projects}
+    reviews = Review.objects.filter(is_active=True)[:6]
+    context = {"services": services, "projects": projects, "reviews": reviews}
     return render(request, "pages/home.html", context)
