@@ -44,5 +44,21 @@
             {% endfor %}            
         </div>
     </section>
+    <section class="mb-5">
+        <h2>Отзывы</h2>
+        <div class="row g-4">
+            {% for review in reviews %}
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ review.author }}</h5>
+                        <p class="text-body-secondary small">{{ review.created_at|date:"d.m.Y" }}</p>
+                        <p class="card-text">{{ review.text }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
 </div>
 {% endblock %}
