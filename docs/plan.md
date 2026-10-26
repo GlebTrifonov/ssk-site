@@ -39,9 +39,10 @@
 
 ## 5. Форма заявки + уведомление в Telegram
 
-- [ ] `LeadForm` (`ModelForm`) в `leads/forms.py`
-- [ ] View заявки: GET — пустая форма, POST — валидация, сохранение, redirect
-- [ ] Шаблон формы: `{% csrf_token %}`, поля, ошибки, Bootstrap
+- [x] `LeadForm` (`ModelForm`) в `leads/forms.py`
+- [x] View заявки (`CreateView`): GET — пустая форма, POST — валидация, сохранение, redirect
+- [x] Шаблон формы и URL `/lead/`: `{% csrf_token %}`, поля, ошибки
+- [ ] Bootstrap для полей формы, ссылка на форму в шапке
 - [ ] Сообщение «Заявка отправлена» (`messages`)
 - [ ] Telegram-бот: токен и chat_id в `.env`
 - [ ] Отправка уведомления о новой заявке (`requests`), ошибка Telegram не ломает заявку
