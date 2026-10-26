@@ -31,6 +31,9 @@
             {% for project in projects %}
             <div class="col-md-4">
                 <div class="card">
+                    {% if project.images.all %}
+                    <img src="{{ project.images.all.0.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                    {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ project.title }}</h5>
                         <p class="card-text">{{ project.description }}</p>
