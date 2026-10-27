@@ -43,7 +43,7 @@
 - [x] View заявки (`CreateView`): GET — пустая форма, POST — валидация, сохранение, redirect
 - [x] Шаблон формы и URL `/lead/`: `{% csrf_token %}`, поля, ошибки
 - [x] Bootstrap для полей формы (`widgets`), ссылка на форму в шапке
-- [ ] Сообщение «Заявка отправлена» (`messages`)
+- [x] Сообщение «Заявка отправлена» (`messages`, `SuccessMessageMixin`)
 - [ ] Telegram-бот: токен и chat_id в `.env`
 - [ ] Отправка уведомления о новой заявке (`requests`), ошибка Telegram не ломает заявку
 
