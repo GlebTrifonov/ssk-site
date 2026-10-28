@@ -3,9 +3,6 @@ import pytest
 from leads.forms import LeadForm
 
 
-@pytest.fixture
-def lead_data():
-    return {"name": "Alex", "phone": "+375298308649"}
 
 
 def test_lead_form_valid_phone(lead_data):
