@@ -3,8 +3,6 @@ import pytest
 from leads.forms import LeadForm
 
 
-
-
 def test_lead_form_valid_phone(lead_data):
     form = LeadForm(data=lead_data)
     result = form.is_valid()

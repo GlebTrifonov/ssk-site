@@ -21,6 +21,7 @@ def test_lead_create_saves_lead(client):
     assert response.url == reverse("home")
     assert Lead.objects.count() == 1
 
+
 @pytest.mark.django_db
 def test_lead_create_invalid_phone_not_saved(client, lead_data):
     lead_data["phone"] = "+4455298308649"
