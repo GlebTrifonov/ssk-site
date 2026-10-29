@@ -29,3 +29,12 @@ def test_lead_create_invalid_phone_not_saved(client, lead_data):
     assert response.status_code == 200
     assert "phone" in response.context["form"].errors
     assert Lead.objects.count() == 0
+
+
+@pytest.mark.django_db
+def test_lead_create_sends_telegram_message(client, mocker, lead_data):
+    mock_send = mocker.patch("leads.views.send_telegram_message")
+    response = client.post(LEAD_CREATE_URL, data=lead_data)
+    mock_send.assert_called_once()
+    assert response.status_code == 302
+    assert lead_data["name"] in mock_send.call_args.args[0]
