@@ -1,4 +1,5 @@
 import pytest
+import requests
 from django.urls import reverse, reverse_lazy
 
 from leads.models import Lead
@@ -38,3 +39,14 @@ def test_lead_create_sends_telegram_message(client, mocker, lead_data):
     mock_send.assert_called_once()
     assert response.status_code == 302
     assert lead_data["name"] in mock_send.call_args.args[0]
+
+
+@pytest.mark.django_db
+def test_lead_create_survives_telegram_error(client, mocker, settings, lead_data):
+    settings.TELEGRAM_BOT_TOKEN = "test_token"
+    settings.TELEGRAM_CHAT_ID = "123"
+    mock_post = mocker.patch("leads.telegram.requests.post")
+    mock_post.side_effect = requests.exceptions.ConnectionError()
+    response = client.post(LEAD_CREATE_URL, data=lead_data)
+    assert response.status_code == 302
+    assert Lead.objects.count() == 1
