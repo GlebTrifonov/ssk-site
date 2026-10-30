@@ -4,4 +4,4 @@ WORKDIR /app
 COPY pyproject.toml uv.lock ./
 RUN uv sync --no-dev --locked
 COPY . .
-CMD ["uv", "run", "--no-dev", "python", "manage.py", "runserver", "0.0.0.0:8000" ]
+CMD ["uv", "run", "--no-dev", "gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000" ]
