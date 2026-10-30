@@ -58,7 +58,16 @@
 
 ## 7. Docker + docker-compose + gunicorn + PostgreSQL
 
-- [ ]
+- [x] Docker Desktop установлен (`docker --version`, `docker compose version`)
+- [ ] `Dockerfile`: образ сайта (Python 3.12 + uv + зависимости + код)
+- [ ] `.dockerignore`: без `.venv`, `.env`, `db.sqlite3`, `media/`
+- [ ] gunicorn вместо `runserver` в контейнере
+- [ ] `docker-compose.yml`: `web` + `db` (PostgreSQL), volume для данных базы
+- [ ] Настройки базы из `.env` (`DATABASE_URL`), драйвер `psycopg`
+- [ ] `migrate` и `createsuperuser` в контейнере
+- [ ] Статика: whitenoise, `collectstatic`
+- [ ] Media в volume
+- [ ] Тесты проходят на PostgreSQL
 
 ## 8. GitHub Actions (ruff + pytest на каждый пуш)
 
