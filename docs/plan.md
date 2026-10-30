@@ -61,7 +61,7 @@
 - [x] Docker Desktop установлен (`docker --version`, `docker compose version`)
 - [x] `Dockerfile`: образ сайта (Python 3.12 + uv + зависимости + код)
 - [x] `.dockerignore`: без `.venv`, `.env`, `db.sqlite3`, `media/`
-- [ ] gunicorn вместо `runserver` в контейнере
+- [x] gunicorn вместо `runserver` в контейнере
 - [ ] `docker-compose.yml`: `web` + `db` (PostgreSQL), volume для данных базы
 - [ ] Настройки базы из `.env` (`DATABASE_URL`), драйвер `psycopg`
 - [ ] `migrate` и `createsuperuser` в контейнере
