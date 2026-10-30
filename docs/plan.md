@@ -65,7 +65,8 @@
 - [ ] `docker-compose.yml`: `web` + `db` (PostgreSQL), volume для данных базы
 - [ ] Настройки базы из `.env` (`DATABASE_URL`), драйвер `psycopg`
 - [ ] `migrate` и `createsuperuser` в контейнере
-- [ ] Статика: whitenoise, `collectstatic`
+- [ ] Статика: `STATIC_ROOT`, `collectstatic`
+- [ ] nginx в compose: reverse proxy к gunicorn, отдача `/static/` и `/media/` (вместо whitenoise)
 - [ ] Media в volume
 - [ ] Тесты проходят на PostgreSQL
 
@@ -75,7 +76,7 @@
 
 ## 9. VPS: деплой, HTTPS, домен
 
-- [ ]
+- [ ] Тот же compose на сервере, HTTPS (Let's Encrypt) в конфиге nginx
 
 ## 10. Потом: немного JS (галерея), SEO-основы
 
