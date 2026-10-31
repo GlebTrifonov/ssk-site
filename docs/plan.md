@@ -62,8 +62,8 @@
 - [x] `Dockerfile`: образ сайта (Python 3.12 + uv + зависимости + код)
 - [x] `.dockerignore`: без `.venv`, `.env`, `db.sqlite3`, `media/`
 - [x] gunicorn вместо `runserver` в контейнере
-- [ ] `docker-compose.yml`: `web` + `db` (PostgreSQL), volume для данных базы
-- [ ] Настройки базы из `.env` (`DATABASE_URL`), драйвер `psycopg`
+- [x] `docker-compose.yml`: `web` + `db` (PostgreSQL), volume для данных базы
+- [x] Настройки базы из `.env` (`DATABASE_URL`), драйвер `psycopg`
 - [ ] `migrate` и `createsuperuser` в контейнере
 - [ ] Статика: `STATIC_ROOT`, `collectstatic`
 - [ ] nginx в compose: reverse proxy к gunicorn, отдача `/static/` и `/media/` (вместо whitenoise)
