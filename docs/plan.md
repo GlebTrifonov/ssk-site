@@ -64,7 +64,7 @@
 - [x] gunicorn вместо `runserver` в контейнере
 - [x] `docker-compose.yml`: `web` + `db` (PostgreSQL), volume для данных базы
 - [x] Настройки базы из `.env` (`DATABASE_URL`), драйвер `psycopg`
-- [ ] `migrate` и `createsuperuser` в контейнере
+- [x] `migrate` и `createsuperuser` в контейнере
 - [ ] Статика: `STATIC_ROOT`, `collectstatic`
 - [ ] nginx в compose: reverse proxy к gunicorn, отдача `/static/` и `/media/` (вместо whitenoise)
 - [ ] Media в volume
