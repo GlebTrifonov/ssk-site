@@ -68,7 +68,7 @@
 - [x] Статика: `STATIC_ROOT`, `collectstatic`
 - [x] nginx в compose: reverse proxy к gunicorn, отдача `/static/` и `/media/` (вместо whitenoise)
 - [x] Media в volume
-- [ ] Тесты проходят на PostgreSQL
+- [x] Тесты проходят на PostgreSQL
 
 ## 8. GitHub Actions (ruff + pytest на каждый пуш)
 
