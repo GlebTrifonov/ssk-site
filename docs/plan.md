@@ -66,8 +66,8 @@
 - [x] Настройки базы из `.env` (`DATABASE_URL`), драйвер `psycopg`
 - [x] `migrate` и `createsuperuser` в контейнере
 - [x] Статика: `STATIC_ROOT`, `collectstatic`
-- [ ] nginx в compose: reverse proxy к gunicorn, отдача `/static/` и `/media/` (вместо whitenoise)
-- [ ] Media в volume
+- [x] nginx в compose: reverse proxy к gunicorn, отдача `/static/` и `/media/` (вместо whitenoise)
+- [x] Media в volume
 - [ ] Тесты проходят на PostgreSQL
 
 ## 8. GitHub Actions (ruff + pytest на каждый пуш)
