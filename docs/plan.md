@@ -58,7 +58,17 @@
 
 ## 7. Docker + docker-compose + gunicorn + PostgreSQL
 
-- [ ]
+- [x] Docker Desktop установлен (`docker --version`, `docker compose version`)
+- [x] `Dockerfile`: образ сайта (Python 3.12 + uv + зависимости + код)
+- [x] `.dockerignore`: без `.venv`, `.env`, `db.sqlite3`, `media/`
+- [x] gunicorn вместо `runserver` в контейнере
+- [x] `docker-compose.yml`: `web` + `db` (PostgreSQL), volume для данных базы
+- [x] Настройки базы из `.env` (`DATABASE_URL`), драйвер `psycopg`
+- [x] `migrate` и `createsuperuser` в контейнере
+- [x] Статика: `STATIC_ROOT`, `collectstatic`
+- [x] nginx в compose: reverse proxy к gunicorn, отдача `/static/` и `/media/` (вместо whitenoise)
+- [x] Media в volume
+- [x] Тесты проходят на PostgreSQL
 
 ## 8. GitHub Actions (ruff + pytest на каждый пуш)
 
@@ -66,7 +76,7 @@
 
 ## 9. VPS: деплой, HTTPS, домен
 
-- [ ]
+- [ ] Тот же compose на сервере, HTTPS (Let's Encrypt) в конфиге nginx
 
 ## 10. Потом: немного JS (галерея), SEO-основы
 
