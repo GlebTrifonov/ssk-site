@@ -20,7 +20,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     env:
-      DATABASE_URL: postgres://postgres:postgres@loсalhost:5432/ssk
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/ssk
       SECRET_KEY: test-secret-key
     steps:
       - uses: actions/checkout@v4
