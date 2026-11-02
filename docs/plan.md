@@ -72,7 +72,11 @@
 
 ## 8. GitHub Actions (ruff + pytest на каждый пуш)
 
-- [ ]
+- [x] Workflow `.github/workflows/ci.yml`: запуск на push и pull request
+- [x] Job: checkout, uv, Python 3.12, `uv sync --locked`
+- [x] `ruff check` и `ruff format --check`
+- [x] `pytest` на PostgreSQL (service container)
+- [ ] Зелёная галочка в PR, бейдж CI в README
 
 ## 9. VPS: деплой, HTTPS, домен
 
