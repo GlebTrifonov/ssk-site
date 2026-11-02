@@ -65,7 +65,7 @@
 - [x] `docker-compose.yml`: `web` + `db` (PostgreSQL), volume для данных базы
 - [x] Настройки базы из `.env` (`DATABASE_URL`), драйвер `psycopg`
 - [x] `migrate` и `createsuperuser` в контейнере
-- [ ] Статика: `STATIC_ROOT`, `collectstatic`
+- [x] Статика: `STATIC_ROOT`, `collectstatic`
 - [ ] nginx в compose: reverse proxy к gunicorn, отдача `/static/` и `/media/` (вместо whitenoise)
 - [ ] Media в volume
 - [ ] Тесты проходят на PostgreSQL
