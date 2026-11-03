@@ -82,7 +82,7 @@
 
 ### 9.1 Подготовка (бэк)
 
-- [ ] `ALLOWED_HOSTS` и `CSRF_TRUSTED_ORIGINS` из `.env`
+- [x] `ALLOWED_HOSTS` и `CSRF_TRUSTED_ORIGINS` из `.env`
 - [ ] `DEBUG=False` в Docker, `manage.py check --deploy` без предупреждений (`SECURE_*`)
 - [ ] gunicorn: `--workers` и `--timeout`
 - [ ] `collectstatic` при старте контейнера
