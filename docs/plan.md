@@ -84,7 +84,7 @@
 
 - [x] `ALLOWED_HOSTS` и `CSRF_TRUSTED_ORIGINS` из `.env`
 - [x] `DEBUG=False` в Docker, настройки HTTPS (`SECURE_*`, cookie) из `.env`
-- [ ] gunicorn: `--workers` и `--timeout`
+- [x] gunicorn: `--workers` и `--timeout`
 - [ ] `collectstatic` при старте контейнера
 - [ ] Согласие на обработку персональных данных: поле `Lead`, обязательная галочка, тесты, страница политики
 - [ ] Защита формы от спама: honeypot, ограничение частоты
