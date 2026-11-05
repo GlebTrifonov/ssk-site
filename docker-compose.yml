@@ -4,6 +4,7 @@ services:
       - db
     environment:
       DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      DEBUG: "False"
     build: .
     env_file: .env
     volumes:

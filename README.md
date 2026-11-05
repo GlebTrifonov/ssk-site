@@ -41,7 +41,6 @@ cp .env.example .env
 ```bash
 docker compose up -d --build
 docker compose exec web uv run --no-dev python manage.py migrate
-docker compose exec web uv run --no-dev python manage.py collectstatic --noinput
 docker compose exec web uv run --no-dev python manage.py createsuperuser
 ```
 
