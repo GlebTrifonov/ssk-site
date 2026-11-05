@@ -45,6 +45,9 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 SECURE_HSTS_SECONDS = env.int("SECURE_HSTS_SECONDS", default=0)
 
+# Not using HSTS for subdomains or the preload list
+SILENCED_SYSTEM_CHECKS = ["security.W005", "security.W021"]
+
 
 # Application definition
 
