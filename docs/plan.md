@@ -83,7 +83,7 @@
 ### 9.1 Подготовка (бэк)
 
 - [x] `ALLOWED_HOSTS` и `CSRF_TRUSTED_ORIGINS` из `.env`
-- [ ] `DEBUG=False` в Docker, `manage.py check --deploy` без предупреждений (`SECURE_*`)
+- [x] `DEBUG=False` в Docker, настройки HTTPS (`SECURE_*`, cookie) из `.env`
 - [ ] gunicorn: `--workers` и `--timeout`
 - [ ] `collectstatic` при старте контейнера
 - [ ] Согласие на обработку персональных данных: поле `Lead`, обязательная галочка, тесты, страница политики
@@ -102,6 +102,7 @@
 
 - [ ] VPS, SSH-доступ, Docker на сервере
 - [ ] Тот же compose на сервере, HTTPS (Let's Encrypt) в конфиге nginx
+- [ ] Включить `SECURE_*` и cookie в `.env` сервера (HSTS сначала `3600`), `check --deploy` без предупреждений
 - [ ] Перенос данных и фото
 
 ### 9.4 Боевой запуск
