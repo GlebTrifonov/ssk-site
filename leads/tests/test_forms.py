@@ -16,3 +16,11 @@ def test_lead_form_invalid_phone(lead_data, phone):
     result = form.is_valid()
     assert not result
     assert "phone" in form.errors
+
+
+def test_lead_form_invalid_without_consent(lead_data):
+    lead_data.pop("consent")
+    form = LeadForm(data=lead_data)
+    result = form.is_valid()
+    assert not result
+    assert "consent" in form.errors
