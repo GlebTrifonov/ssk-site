@@ -24,3 +24,11 @@ def test_lead_form_invalid_without_consent(lead_data):
     result = form.is_valid()
     assert not result
     assert "consent" in form.errors
+
+
+def test_lead_form_invalid_with_website(lead_data):
+    lead_data["website"] = "test"
+    form = LeadForm(data=lead_data)
+    result = form.is_valid()
+    assert not result
+    assert "website" in form.errors
