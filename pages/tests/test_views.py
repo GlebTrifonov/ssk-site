@@ -34,3 +34,8 @@ def test_home_shows_only_active_projects(client):
     assert response.status_code == 200
     assert active in response.context["projects"]
     assert hidden not in response.context["projects"]
+
+
+def test_privacy_page_opens(client):
+    response = client.get(reverse("privacy"))
+    assert response.status_code == 200

@@ -15,6 +15,9 @@ class Lead(models.Model):
     )
     message = models.TextField(blank=True, verbose_name="Что нужно сделать")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата заявки")
+    consent = models.BooleanField(
+        default=False, verbose_name="Согласие на обработку персональных данных"
+    )
 
     class Meta:
         verbose_name = "Заявка"

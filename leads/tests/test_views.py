@@ -14,13 +14,12 @@ def test_lead_create_page_opens(client):
 
 
 @pytest.mark.django_db
-def test_lead_create_saves_lead(client):
-    response = client.post(
-        LEAD_CREATE_URL, data={"name": "Alex", "phone": "+375298308649"}
-    )
+def test_lead_create_saves_lead(client, lead_data):
+    response = client.post(LEAD_CREATE_URL, data=lead_data)
     assert response.status_code == 302
     assert response.url == reverse("home")
     assert Lead.objects.count() == 1
+    assert Lead.objects.get().consent is True
 
 
 @pytest.mark.django_db

@@ -5,7 +5,22 @@
     <h1>Оставить заявку</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form }}
+        <div class="mb-3">
+            {{ form.name.as_field_group }}
+        </div>
+        <div class="mb-3">
+            {{ form.phone.as_field_group }}
+        </div>
+        <div class="mb-3">
+            {{ form.message.as_field_group }}
+        </div>
+        <div class="form-check mb-3">
+            {{ form.consent }}
+            <label class="form-check-label" for="{{ form.consent.id_for_label }}">
+                Согласие на обработку <a href="{% url 'privacy' %}" target="_blank">персональных данных</a>
+            </label>
+            {{ form.consent.errors }}
+        </div>
         <button type="submit" class="btn btn-primary">Отправить</button>
     </form>
 </div>
