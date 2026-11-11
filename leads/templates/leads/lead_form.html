@@ -17,7 +17,7 @@
         <div class="form-check mb-3">
             {{ form.consent }}
             <label class="form-check-label" for="{{ form.consent.id_for_label }}">
-                {{ form.consent.label }}
+                Согласие на обработку <a href="{% url 'privacy' %}" target="_blank">персональных данных</a>
             </label>
             {{ form.consent.errors }}
         </div>
