@@ -49,3 +49,13 @@ def test_lead_create_survives_telegram_error(client, mocker, settings, lead_data
     response = client.post(LEAD_CREATE_URL, data=lead_data)
     assert response.status_code == 302
     assert Lead.objects.count() == 1
+
+
+@pytest.mark.django_db
+def test_lead_create_website_not_saved(client, lead_data, mocker):
+    lead_data["website"] = "test"
+    mock_post = mocker.patch("leads.views.send_telegram_message")
+    response = client.post(LEAD_CREATE_URL, data=lead_data)
+    mock_post.assert_not_called()
+    assert response.status_code == 200
+    assert Lead.objects.count() == 0
