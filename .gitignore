@@ -26,3 +26,6 @@ media/
 
 # Static
 staticfiles/
+
+# SQL
+*.sql
