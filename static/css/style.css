@@ -1,3 +1,18 @@
+:root {
+  --color-bg: #f4f5f3;
+  --color-text: #1a1f1b;
+  --color-text-muted: #4a544c;
+  --color-accent: #2e5e33;
+  --color-accent-hover: #1f4224;
+  --color-surface: #ffffff;
+  --color-border: #dce1db;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
 h2 {
   color: #0d6efd;
 }
