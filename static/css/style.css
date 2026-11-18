@@ -1,12 +1,21 @@
 :root {
+  /* Палитра макета В */
   --color-bg: #f4f5f3;
   --color-text: #1a1f1b;
   --color-text-muted: #4a544c;
   --color-accent: #2e5e33;
+  --color-accent-rgb: 46, 94, 51;
   --color-accent-hover: #1f4224;
+  --color-accent-hover-rgb: 31, 66, 36;
   --color-surface: #ffffff;
   --color-border: #dce1db;
+
+  /* Шрифт */
   --font-base: "Golos Text", system-ui, sans-serif;
+
+  /* Bootstrap: ссылки (принимает цвет только тремя числами) */
+  --bs-link-color-rgb: var(--color-accent-rgb);
+  --bs-link-hover-color-rgb: var(--color-accent-hover-rgb);
 }
 
 body {
@@ -22,4 +31,5 @@ body {
   --bs-btn-hover-border-color: var(--color-accent-hover);
   --bs-btn-active-bg: var(--color-accent-hover);
   --bs-btn-active-border-color: var(--color-accent-hover);
+  --bs-btn-focus-shadow-rgb: var(--color-accent-rgb);
 }
