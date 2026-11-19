@@ -16,7 +16,7 @@
 - **Backend:** Python 3.12, Django 5.2, PostgreSQL 17
 - **Frontend:** шаблоны Django, Bootstrap 5
 - **Инфраструктура:** Docker, docker-compose, gunicorn, nginx
-- **Качество:** pytest + pytest-django, ruff, GitHub Actions (линтер и тесты на PostgreSQL при каждом пуше)
+- **Качество:** pytest + pytest-django, ruff, pre-commit, GitHub Actions (линтер и тесты на PostgreSQL при каждом пуше)
 - **Зависимости:** uv
 
 ## Архитектура
@@ -76,6 +76,7 @@ docker compose exec db dropdb -U <POSTGRES_USER> restore_test
 
 ```bash
 uv sync
+uv run pre-commit install    # ruff и pytest перед каждым коммитом
 cp .env.example .env    # заполнить SECRET_KEY
 uv run python manage.py migrate
 uv run python manage.py createsuperuser
@@ -83,6 +84,14 @@ uv run python manage.py runserver
 ```
 
 ## Тесты и линтер
+
+После `pre-commit install` проверки запускаются сами при каждом `git commit`; если что-то упало, коммит не создаётся. Вручную по всему проекту:
+
+```bash
+uv run pre-commit run --all-files
+```
+
+Или по отдельности:
 
 ```bash
 uv run pytest
