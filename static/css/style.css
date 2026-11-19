@@ -33,3 +33,16 @@ body {
   --bs-btn-active-border-color: var(--color-accent-hover);
   --bs-btn-focus-shadow-rgb: var(--color-accent-rgb);
 }
+
+/* Шапка: пункты меню цветом текста, при наведении — акцент */
+.navbar {
+  --bs-navbar-color: var(--color-text);
+  --bs-navbar-hover-color: var(--color-accent);
+}
+
+/* Телефон в шапке: акцентный и полужирный */
+.header-phone {
+  --bs-nav-link-color: var(--color-accent);
+  --bs-nav-link-hover-color: var(--color-accent-hover);
+  --bs-nav-link-font-weight: 600;
+}
