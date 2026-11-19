@@ -12,32 +12,36 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="{% url 'home' %}"><img src="{% static 'img/logo.jpg' %}" alt="СанСтройКап" height="40" class="me-2 align-middle">СанСтройКап</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link" href="#">Услуги</a>
-            <a class="nav-link" href="#">Объекты</a>
-            <a class="nav-link" href="#">Отзывы</a>
-            <a class="nav-link" href="#">Контакты</a>
-            <a class="nav-link" href="{% url 'lead_create' %}">Оставить заявку</a>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="{% url 'home' %}"><img src="{% static 'img/logo.jpg' %}" alt="СанСтройКап" height="40" class="me-2 align-middle">СанСтройКап</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="#">Услуги</a>
+              <a class="nav-link" href="#">Объекты</a>
+              <a class="nav-link" href="#">Отзывы</a>
+              <a class="nav-link" href="#">Контакты</a>
+              <a class="nav-link" href="{% url 'lead_create' %}">Оставить заявку</a>
+            </div>
+            <a class="nav-link ms-auto" href="tel:+375298308649">+375 (29) 830-86-49</a>
           </div>
-          <a class="nav-link ms-auto" href="tel:+375298308649">+375 (29) 830-86-49</a>
         </div>
+      </nav>
+    </header>
+    <main>
+      {% if messages %}
+      <div class="container mt-3">
+        {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
       </div>
-    </nav>
-    {% if messages %}
-    <div class="container mt-3">
-      {% for message in messages %}
-      <div class="alert alert-success">{{ message }}</div>
-      {% endfor %}
-    </div>
-    {% endif %}
-    {% block content %}{% endblock %}
+      {% endif %}
+      {% block content %}{% endblock %}
+    </main>
     <footer class="py-3 my-4">
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item">
