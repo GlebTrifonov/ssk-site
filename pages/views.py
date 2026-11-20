@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from leads.forms import LeadForm
 from projects.models import Project, Review
 from services.models import Service
 
@@ -12,5 +13,10 @@ def home(request):
         .filter(is_active=True)
     )
     reviews = Review.objects.filter(is_active=True)[:6]
-    context = {"services": services, "projects": projects, "reviews": reviews}
+    context = {
+        "services": services,
+        "projects": projects,
+        "reviews": reviews,
+        "form": LeadForm(),
+    }
     return render(request, "pages/home.html", context)

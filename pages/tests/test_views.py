@@ -1,6 +1,7 @@
 import pytest
 from django.urls import reverse
 
+from leads.forms import LeadForm
 from projects.models import Project, Review
 from services.models import Service
 
@@ -39,3 +40,10 @@ def test_home_shows_only_active_projects(client):
 def test_privacy_page_opens(client):
     response = client.get(reverse("privacy"))
     assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_home_has_lead_form(client):
+    response = client.get(reverse("home"))
+    assert response.status_code == 200
+    assert isinstance(response.context["form"], LeadForm)
