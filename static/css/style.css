@@ -178,3 +178,43 @@ body {
   font-size: 0.875rem;
   color: var(--color-text-muted);
 }
+
+/* Секции главной: общий отступ, белый фон, заголовок */
+.section {
+  padding: 80px 0;
+}
+
+.section-surface {
+  background: var(--color-surface);
+}
+
+.section-title {
+  margin-bottom: 40px;
+  font-size: clamp(1.75rem, 3.5vw, 2.125rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Услуги: колонки с зелёной полосой сверху */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.service {
+  padding-top: 24px;
+  border-top: 3px solid var(--color-accent);
+}
+
+.service-title {
+  margin-bottom: 12px;
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+.service-text {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}

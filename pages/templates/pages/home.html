@@ -26,22 +26,20 @@
         </div>
     </div>
 </section>
-<div class="container">
-    <section class="mb-5">
-        <h2>Наши услуги</h2>
-        <div class="row g-4">
+<section class="section section-surface">
+    <div class="container">
+        <h2 class="section-title">Что делаем</h2>
+        <div class="services-grid">
             {% for service in services %}
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ service.title }}</h5>
-                        <p class="card-text">{{ service.description }}</p>
-                    </div>
-                </div>
+            <div class="service">
+                <h3 class="service-title">{{ service.title }}</h3>
+                <p class="service-text">{{ service.description }}</p>
             </div>
             {% endfor %}
         </div>
-    </section>
+    </div>
+</section>
+<div class="container mt-5">
     <section class="mb-5">
         <h2>Наши объекты</h2>
         <div class="row g-4">
