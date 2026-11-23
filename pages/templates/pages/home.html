@@ -3,13 +3,30 @@
 {% block title %}Главная{% endblock %}
 
 {% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-7">
+                <h1 class="hero-title">Инженерные системы для дома и здания</h1>
+                <p class="hero-lead">Отопление, водоснабжение и канализация в Гродно и области. Берёмся за объект целиком — от проекта до сдачи.</p>
+                <ul class="hero-tags">
+                    <li>Под ключ</li>
+                    <li>Частные дома</li>
+                    <li>Многоквартирные здания</li>
+                    <li>Историческая застройка</li>
+                </ul>
+            </div>
+            <div class="col-lg-5">
+                <div class="hero-card">
+                    <h2 class="hero-card-title">Заявка на расчёт</h2>
+                    <p class="hero-card-text">Перезвоним и уточним задачу.</p>
+                    {% include "leads/includes/lead_form.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <div class="container">
-    <h1>СанСтройКап</h1>
-    <section class="mb-5">
-        <h2>Кто мы</h2>
-        <p>«СанСтройКап» — строительная компания из Гродно. Работаем по всей Гродненской области.</p>
-        <p>Наша специализация — инженерные системы: отопление, водоснабжение и канализация. Берёмся за объекты под ключ: от проекта до сдачи.</p>
-    </section>
     <section class="mb-5">
         <h2>Наши услуги</h2>
         <div class="row g-4">
