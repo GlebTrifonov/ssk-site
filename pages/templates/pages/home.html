@@ -39,26 +39,28 @@
         </div>
     </div>
 </section>
-<div class="container mt-5">
-    <section class="mb-5">
-        <h2>Наши объекты</h2>
-        <div class="row g-4">
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Выполненные объекты</h2>
+        <div class="projects-list">
             {% for project in projects %}
-            <div class="col-md-4">
-                <div class="card">
-                    {% if project.images.all %}
-                    <img src="{{ project.images.all.0.image.url }}" class="card-img-top" alt="{{ project.title }}">
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ project.title }}</h5>
-                        <p class="card-text">{{ project.description }}</p>
-                        <p class="card-text fw-bold">{{ project.service.title }}</p>
-                    </div>
+            <article class="project">
+                {% with photo=project.images.all|first %}
+                {% if photo %}
+                <img src="{{ photo.image.url }}" alt="{{ project.title }}" class="project-photo" loading="lazy">
+                {% endif %}
+                {% endwith %}
+                <div class="project-body">
+                    <p class="project-service">{{ project.service.title }}</p>
+                    <h3 class="project-title">{{ project.title }}</h3>
+                    <p class="project-text">{{ project.description }}</p>
                 </div>
-            </div>
-            {% endfor %}            
+            </article>
+            {% endfor %}
         </div>
-    </section>
+    </div>
+</section>
+<div class="container">
     <section class="mb-5">
         <h2>Отзывы</h2>
         <div class="row g-4">
