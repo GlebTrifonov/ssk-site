@@ -9,6 +9,8 @@
   --color-accent-hover-rgb: 31, 66, 36;
   --color-surface: #ffffff;
   --color-border: #dce1db;
+  --color-input-border: #cdd4cc;
+  --color-input-bg: #fafbfa;
 
   /* Шрифт */
   --font-base: "Golos Text", system-ui, sans-serif;
@@ -100,4 +102,27 @@ body {
 .hero-card-text {
   margin-bottom: 24px;
   color: var(--color-text-muted);
+}
+
+/* Поля формы по макету; фокус и галочка — акцент вместо синего Bootstrap */
+.form-control {
+  padding: 12px 14px;
+  background-color: var(--color-input-bg);
+  border-color: var(--color-input-border);
+  border-radius: 10px;
+}
+
+.form-control:focus,
+.form-check-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 0.25rem rgba(var(--color-accent-rgb), 0.25);
+}
+
+.form-control:focus {
+  background-color: var(--color-surface);
+}
+
+.form-check-input:checked {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
 }
