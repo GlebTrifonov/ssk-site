@@ -1,3 +1,307 @@
-h2 {
-  color: #0d6efd;
+:root {
+  /* Палитра макета В */
+  --color-bg: #f4f5f3;
+  --color-text: #1a1f1b;
+  --color-text-muted: #4a544c;
+  --color-accent: #2e5e33;
+  --color-accent-rgb: 46, 94, 51;
+  --color-accent-hover: #1f4224;
+  --color-accent-hover-rgb: 31, 66, 36;
+  --color-surface: #ffffff;
+  --color-border: #dce1db;
+  --color-input-border: #cdd4cc;
+  --color-input-bg: #fafbfa;
+
+  /* Шрифт */
+  --font-base: "Golos Text", system-ui, sans-serif;
+
+  /* Bootstrap: ссылки (принимает цвет только тремя числами) */
+  --bs-link-color-rgb: var(--color-accent-rgb);
+  --bs-link-hover-color-rgb: var(--color-accent-hover-rgb);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-base);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--color-accent);
+  --bs-btn-border-color: var(--color-accent);
+  --bs-btn-hover-bg: var(--color-accent-hover);
+  --bs-btn-hover-border-color: var(--color-accent-hover);
+  --bs-btn-active-bg: var(--color-accent-hover);
+  --bs-btn-active-border-color: var(--color-accent-hover);
+  --bs-btn-focus-shadow-rgb: var(--color-accent-rgb);
+}
+
+/* Шапка: пункты меню цветом текста, при наведении — акцент */
+.navbar {
+  --bs-navbar-color: var(--color-text);
+  --bs-navbar-hover-color: var(--color-accent);
+}
+
+/* Телефон в шапке: акцентный и полужирный */
+.header-phone {
+  --bs-nav-link-color: var(--color-accent);
+  --bs-nav-link-hover-color: var(--color-accent-hover);
+  --bs-nav-link-font-weight: 600;
+}
+
+/* Первый экран: заголовок, подзаголовок, теги и карточка с формой */
+.hero {
+  padding: 64px 0 96px;
+}
+
+.hero-title {
+  margin-bottom: 24px;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero-lead {
+  margin-bottom: 24px;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-tags li {
+  padding: 8px 14px;
+  font-size: 0.875rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+}
+
+.hero-card {
+  padding: 32px;
+  background: var(--color-surface);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(20, 30, 22, 0.06), 0 8px 24px rgba(20, 30, 22, 0.06);
+}
+
+.hero-card-title {
+  margin-bottom: 8px;
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.hero-card-text {
+  margin-bottom: 24px;
+  color: var(--color-text-muted);
+}
+
+/* Поля формы по макету; фокус и галочка — акцент вместо синего Bootstrap */
+.form-control {
+  padding: 12px 14px;
+  background-color: var(--color-input-bg);
+  border-color: var(--color-input-border);
+  border-radius: 10px;
+}
+
+.form-control:focus,
+.form-check-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 0.25rem rgba(var(--color-accent-rgb), 0.25);
+}
+
+.form-control:focus {
+  background-color: var(--color-surface);
+}
+
+.form-check-input:checked {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* Подвал: слева название, справа контакты */
+.site-footer {
+  margin-top: 80px;
+  padding: 56px 0 32px;
+  border-top: 1px solid var(--color-border);
+}
+
+.site-footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px 56px;
+}
+
+.site-footer-brand,
+.site-footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.site-footer-contacts {
+  margin-bottom: 0;
+}
+
+.site-footer-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.site-footer-muted {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.site-footer-phone {
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.site-footer-contacts a:hover {
+  color: var(--color-accent);
+}
+
+.site-footer-copy {
+  margin: 40px 0 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+/* Секции главной: общий отступ, белый фон, заголовок */
+.section {
+  padding: 80px 0;
+}
+
+.section-surface {
+  background: var(--color-surface);
+}
+
+.section-title {
+  margin-bottom: 40px;
+  font-size: clamp(1.75rem, 3.5vw, 2.125rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Услуги: колонки с зелёной полосой сверху */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.service {
+  padding-top: 24px;
+  border-top: 3px solid var(--color-accent);
+}
+
+.service-title {
+  margin-bottom: 12px;
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+.service-text {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* Объекты: горизонтальные карточки, фото слева, текст справа */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.project {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  padding: 16px;
+  background: var(--color-surface);
+  border-radius: 16px;
+}
+
+.project-photo {
+  flex: 0 1 280px;
+  width: 280px;
+  max-width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.project-body {
+  flex: 1 1 360px;
+  padding: 8px;
+}
+
+.project-service {
+  margin-bottom: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.project-title {
+  margin-bottom: 8px;
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.project-text {
+  margin: 0;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+/* Отзывы: цитаты без карточек, колонок столько, сколько влезет по 300px */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px 48px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+}
+
+.review-text {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.review-author {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+/* Закреплённая шапка: свой фон и линия снизу, чтобы контент не просвечивал */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Переход по якорю: секция встаёт под шапку, а не за неё (шапка 66px + запас) */
+html {
+  scroll-padding-top: 72px;
 }

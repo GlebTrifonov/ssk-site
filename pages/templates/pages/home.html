@@ -3,62 +3,77 @@
 {% block title %}Главная{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1>СанСтройКап</h1>
-    <section class="mb-5">
-        <h2>Кто мы</h2>
-        <p>«СанСтройКап» — строительная компания из Гродно. Работаем по всей Гродненской области.</p>
-        <p>Наша специализация — инженерные системы: отопление, водоснабжение и канализация. Берёмся за объекты под ключ: от проекта до сдачи.</p>
-    </section>
-    <section class="mb-5">
-        <h2>Наши услуги</h2>
-        <div class="row g-4">
+<section id="lead" class="hero">
+    <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+            <div class="col-lg-7">
+                <h1 class="hero-title">Инженерные системы для дома и здания</h1>
+                <p class="hero-lead">Отопление, водоснабжение и канализация в Гродно и области. Берёмся за объект целиком — от проекта до сдачи.</p>
+                <ul class="hero-tags">
+                    <li>Под ключ</li>
+                    <li>Частные дома</li>
+                    <li>Многоквартирные здания</li>
+                    <li>Историческая застройка</li>
+                </ul>
+            </div>
+            <div class="col-lg-5">
+                <div class="hero-card">
+                    <h2 class="hero-card-title">Заявка на расчёт</h2>
+                    <p class="hero-card-text">Перезвоним и уточним задачу.</p>
+                    {% include "leads/includes/lead_form.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="services" class="section section-surface">
+    <div class="container">
+        <h2 class="section-title">Что делаем</h2>
+        <div class="services-grid">
             {% for service in services %}
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ service.title }}</h5>
-                        <p class="card-text">{{ service.description }}</p>
-                    </div>
-                </div>
+            <div class="service">
+                <h3 class="service-title">{{ service.title }}</h3>
+                <p class="service-text">{{ service.description }}</p>
             </div>
             {% endfor %}
         </div>
-    </section>
-    <section class="mb-5">
-        <h2>Наши объекты</h2>
-        <div class="row g-4">
+    </div>
+</section>
+<section id="projects" class="section">
+    <div class="container">
+        <h2 class="section-title">Выполненные объекты</h2>
+        <div class="projects-list">
             {% for project in projects %}
-            <div class="col-md-4">
-                <div class="card">
-                    {% if project.images.all %}
-                    <img src="{{ project.images.all.0.image.url }}" class="card-img-top" alt="{{ project.title }}">
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ project.title }}</h5>
-                        <p class="card-text">{{ project.description }}</p>
-                        <p class="card-text fw-bold">{{ project.service.title }}</p>
-                    </div>
+            <article class="project">
+                {% with photo=project.images.all|first %}
+                {% if photo %}
+                <img src="{{ photo.image.url }}" alt="{{ project.title }}" class="project-photo" loading="lazy">
+                {% endif %}
+                {% endwith %}
+                <div class="project-body">
+                    <p class="project-service">{{ project.service.title }}</p>
+                    <h3 class="project-title">{{ project.title }}</h3>
+                    <p class="project-text">{{ project.description }}</p>
                 </div>
-            </div>
-            {% endfor %}            
-        </div>
-    </section>
-    <section class="mb-5">
-        <h2>Отзывы</h2>
-        <div class="row g-4">
-            {% for review in reviews %}
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ review.author }}</h5>
-                        <p class="text-body-secondary small">{{ review.created_at|date:"d.m.Y" }}</p>
-                        <p class="card-text">{{ review.text }}</p>
-                    </div>
-                </div>
-            </div>
+            </article>
             {% endfor %}
         </div>
-    </section>
-</div>
+    </div>
+</section>
+<section id="reviews" class="section section-surface">
+    <div class="container">
+        <h2 class="section-title">Отзывы клиентов</h2>
+        <div class="reviews-grid">
+            {% for review in reviews %}
+            <figure class="review">
+                <blockquote class="review-text">{{ review.text }}</blockquote>
+                <figcaption class="review-author">
+                    — {{ review.author }},
+                    <time datetime="{{ review.created_at|date:'Y-m-d' }}">{{ review.created_at|date:"d.m.Y" }}</time>
+                </figcaption>
+            </figure>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}

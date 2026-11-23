@@ -6,48 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}SSK-Teplo{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/logo.jpg' %}" alt="СанСтройКап" height="40" class="me-2 align-middle">СанСтройКап</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link" href="#">Услуги</a>
-            <a class="nav-link" href="#">Объекты</a>
-            <a class="nav-link" href="#">Отзывы</a>
-            <a class="nav-link" href="#">Контакты</a>
-            <a class="nav-link" href="{% url 'lead_create' %}">Оставить заявку</a>
+    <header class="sticky-top site-header">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="{% url 'home' %}"><img src="{% static 'img/logo.jpg' %}" alt="СанСтройКап" height="40" class="me-2 align-middle">СанСтройКап</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="{% url 'home' %}#services">Услуги</a>
+              <a class="nav-link" href="{% url 'home' %}#projects">Объекты</a>
+              <a class="nav-link" href="{% url 'home' %}#reviews">Отзывы</a>
+              <a class="nav-link" href="{% url 'home' %}#contacts">Контакты</a>
+              <a class="nav-link" href="{% url 'home' %}#lead">Оставить заявку</a>
+            </div>
+            <a class="nav-link ms-auto header-phone" href="tel:+375298308649">+375 (29) 830-86-49</a>
           </div>
         </div>
+      </nav>
+    </header>
+    <main>
+      {% if messages %}
+      <div class="container mt-3">
+        {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
       </div>
-    </nav>
-    {% if messages %}
-    <div class="container mt-3">
-      {% for message in messages %}
-      <div class="alert alert-success">{{ message }}</div>
-      {% endfor %}
-    </div>
-    {% endif %}
-    {% block content %}{% endblock %}
-    <footer class="py-3 my-4">
-      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item">
-          <a href="tel:+375298308649" class="nav-link px-2 text-body-secondary">Телефон: +375 (29) 830-86-49</a>
-        </li>
-        <li class="nav-item">
-          <span class="nav-link px-2 text-body-secondary">Почта: <span class="user-select-all">ssk-teplo@mail.ru</span></span>
-        </li>
-        <li class="nav-item">
-          <a href="https://www.google.com/maps/place/1-%D1%8F+%D0%9F%D1%80%D0%B0%D1%86%D0%BE%D1%9E%D0%BD%D0%B0%D1%8F+%D0%B2%D1%83%D0%BB%D1%96%D1%86%D0%B0+10,+%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%B0,+%D0%93%D1%80%D0%BE%D0%B4%D0%B7%D0%B5%D0%BD%D1%81%D0%BA%D0%B0%D1%8F+%D0%B2%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%86%D1%8C,+%D0%91%D0%B5%D0%BB%D0%B0%D1%80%D1%83%D1%81%D1%8C/@53.6809205,23.8268243,19z/data=!3m1!4b1!4m6!3m5!1s0x46dfd6261436c4a5:0xd4dcde103a65b6dd!8m2!3d53.6809197!4d23.8274694!16s%2Fg%2F11c19dbbtj?entry=ttu&g_ep=EgoyMDI2MTAxOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="nav-link px-2 text-body-secondary">Адрес: г. Гродно, ул. 1-я Трудовая, д. 10</a>
-        </li>
-      </ul>
-      <p class="text-center text-body-secondary">© {% now "Y" %} «СанСтройКап»</p>
+      {% endif %}
+      {% block content %}{% endblock %}
+    </main>
+    <footer id="contacts" class="site-footer">
+      <div class="container">
+        <div class="site-footer-inner">
+          <div class="site-footer-brand">
+            <span class="site-footer-name">СанСтройКап</span>
+            <span class="site-footer-muted">Инженерные системы в Гродно и области</span>
+          </div>
+          <address class="site-footer-contacts">
+            <a href="tel:+375298308649" class="site-footer-phone">+375 (29) 830-86-49</a>
+            <a href="mailto:ssk-teplo@mail.ru" class="site-footer-muted">ssk-teplo@mail.ru</a>
+            <a href="https://www.google.com/maps/place/1-%D1%8F+%D0%9F%D1%80%D0%B0%D1%86%D0%BE%D1%9E%D0%BD%D0%B0%D1%8F+%D0%B2%D1%83%D0%BB%D1%96%D1%86%D0%B0+10,+%D0%93%D1%80%D0%BE%D0%B4%D0%BD%D0%B0,+%D0%93%D1%80%D0%BE%D0%B4%D0%B7%D0%B5%D0%BD%D1%81%D0%BA%D0%B0%D1%8F+%D0%B2%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%86%D1%8C,+%D0%91%D0%B5%D0%BB%D0%B0%D1%80%D1%83%D1%81%D1%8C/@53.6809205,23.8268243,19z/data=!3m1!4b1!4m6!3m5!1s0x46dfd6261436c4a5:0xd4dcde103a65b6dd!8m2!3d53.6809197!4d23.8274694!16s%2Fg%2F11c19dbbtj?entry=ttu&g_ep=EgoyMDI2MTAxOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="site-footer-muted">г. Гродно, ул. 1-я Трудовая, д. 10</a>
+          </address>
+        </div>
+        <p class="site-footer-copy">© {% now "Y" %} «СанСтройКап» · <a href="{% url 'privacy' %}">Политика конфиденциальности</a></p>
+      </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="{% static 'js/main.js' %}"></script>
   </body>
 </html>

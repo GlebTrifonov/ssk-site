@@ -22,7 +22,7 @@ class LeadForm(forms.ModelForm):
         widgets = {
             "name": forms.TextInput(attrs={"class": "form-control"}),
             "phone": forms.TextInput(attrs={"class": "form-control"}),
-            "message": forms.Textarea(attrs={"class": "form-control"}),
+            "message": forms.Textarea(attrs={"class": "form-control", "rows": 3}),
         }
 
     def clean_website(self):
