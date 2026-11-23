@@ -294,3 +294,14 @@ body {
   font-size: 0.9375rem;
   color: var(--color-text-muted);
 }
+
+/* Закреплённая шапка: свой фон и линия снизу, чтобы контент не просвечивал */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Переход по якорю: секция встаёт под шапку, а не за неё (шапка 66px + запас) */
+html {
+  scroll-padding-top: 72px;
+}
