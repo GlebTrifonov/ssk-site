@@ -1,13 +1,13 @@
     <form method="post" action="{% url 'lead_create' %}">
         {% csrf_token %}
         <div class="mb-3">
-            {{ form.name.as_field_group }}
+            {% include "leads/includes/form_field.html" with field=form.name %}
         </div>
         <div class="mb-3">
-            {{ form.phone.as_field_group }}
+            {% include "leads/includes/form_field.html" with field=form.phone %}
         </div>
         <div class="mb-3">
-            {{ form.message.as_field_group }}
+            {% include "leads/includes/form_field.html" with field=form.message %}
         </div>
         <div class="form-check mb-3">
             {{ form.consent }}
